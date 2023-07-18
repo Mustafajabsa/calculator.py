@@ -1,0 +1,42 @@
+# calculator
+from art import logo
+print(logo)
+# addition
+def add(n1, n2):
+        return n1+n2
+# subtraction
+def sub(n1, n2):
+        return n1-n2
+# multiplicatin
+def mult(n1, n2):
+        return n1*n2
+# division
+def div(n1, n2):
+        return n1/n2
+operations = {
+        "+" : add,
+        "-" : sub,
+        "*" : mult,
+        "/" : div
+}
+def calculator():
+        print(logo)
+        num1 = int(input("what is the first number ?: "))
+        while True:
+                for op in operations:
+                        """
+                        it is for printing all the operators
+                        """
+                        print(op)
+                operator = float("choose one operator: ")
+                num2 = float(input("what is the next number ?: "))
+                result = operations[operator](num1, num2)
+                print(f"{num1} {operator} {num2} = {result}")
+                option = input("Type Y if you want to continue with the previous answer {result} or R to start a fresh calculation? ").lower()
+                if option == "y":
+                        num1 = result
+                        pass
+                else:
+                        calculator()
+               
+calculator()
